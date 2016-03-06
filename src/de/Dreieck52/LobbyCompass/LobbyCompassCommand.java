@@ -44,18 +44,18 @@ public class LobbyCompassCommand implements CommandExecutor, Listener {
 			
 			} else if (args[0].equals("help") || args[0].equals("info")) {
 				
-				p.sendMessage(LobbyCompass.prefix + "§e---------- LobbyCompass ----------");
-				p.sendMessage(LobbyCompass.prefix + "§e> Compass-Lobby-Teleport Plugin by §lDreieck52");
-				p.sendMessage(LobbyCompass.prefix + "§e----------------------------------");
+				p.sendMessage(LobbyCompass.prefix + ChatColor.YELLOW + "---------- LobbyCompass ----------");
+				p.sendMessage(LobbyCompass.prefix + ChatColor.YELLOW + "> Compass-Lobby-Teleport Plugin by Dreieck52");
+				p.sendMessage(LobbyCompass.prefix + ChatColor.YELLOW + "----------------------------------");
 				
 			} else if (args[0].equals("get") && (p.hasPermission(LobbyCompass.get_Permission) || p.hasPermission(LobbyCompass.admin_Permission))) {
 				
 				if (pl.getConfig().getBoolean("only-allow-command-lc_get-in-worlds") && !pl.getConfig().getStringList("get-compass-worlds").contains(p.getWorld().getName())) {
-					p.sendMessage(LobbyCompass.prefix + "§eThe Lobby-Compass is disabled for this world!");
+					p.sendMessage(LobbyCompass.prefix + ChatColor.YELLOW + "The Lobby-Compass is disabled for this world!");
 					return true;
 				}
 				
-				p.sendMessage(LobbyCompass.prefix + "§eGiving you your Lobby-Compass!");
+				p.sendMessage(LobbyCompass.prefix + ChatColor.YELLOW + "Giving you your Lobby-Compass!");
 				
 				ItemStack compass = new ItemStack(Material.COMPASS);
 				ItemMeta compassMeta = compass.getItemMeta();
@@ -65,16 +65,16 @@ public class LobbyCompassCommand implements CommandExecutor, Listener {
 				
 			} else if (args[0].equals("reload") && (p.hasPermission(LobbyCompass.get_Permission) || p.hasPermission(LobbyCompass.admin_Permission))) {
 				
-				p.sendMessage(LobbyCompass.prefix + "§aConfig reloaded!");
+				p.sendMessage(LobbyCompass.prefix + ChatColor.GREEN + "Config reloaded!");
 				pl.reloadConfig();
 				
 			} else {
 				
-				cs.sendMessage(LobbyCompass.prefix + "§cNot valid arguments or to few permissions.");
+				cs.sendMessage(LobbyCompass.prefix + ChatColor.GREEN + "Not valid arguments or to few permissions.");
 			}
 			
 		} else {
-			cs.sendMessage(LobbyCompass.prefix + "§cYou're not a valid player.");
+			cs.sendMessage(LobbyCompass.prefix + ChatColor.GREEN + "You're not a valid player.");
 		}
 		
 		return true;
@@ -166,7 +166,7 @@ public class LobbyCompassCommand implements CommandExecutor, Listener {
 									
 									if (pl.getConfig().getBoolean("sound-effect")) {
 										
-										p.playSound(p.getLocation(), Sound.LEVEL_UP, 7, 1);
+										p.playSound(p.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 7, 1);
 										
 									}
 									

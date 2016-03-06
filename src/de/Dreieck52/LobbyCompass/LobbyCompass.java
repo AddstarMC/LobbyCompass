@@ -3,11 +3,12 @@ package de.Dreieck52.LobbyCompass;
 import net.gravitydevelopment.updater.Updater;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class LobbyCompass extends JavaPlugin {
 
-	public static String prefix = "§f[§eCompass§f] ";
+	public static String prefix = ChatColor.translateAlternateColorCodes('&', "&f[&eCompass&f] ");
 	
 	public static String use_Permission = "lobbycompass.use";
 	public static String get_Permission = "lobbycompass.get";
